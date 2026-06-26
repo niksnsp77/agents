@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "livekit-plugins-sanas"
+dynamic = ["version"]
+description = "Agent Framework Plugin for Sanas audio processing"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10.0"
+authors = [{ name = "LiveKit", email = "hello@livekit.io" }]
+keywords = ["voice", "ai", "realtime", "audio", "video", "livekit", "webrtc", "sanas"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = [
+    "livekit-agents>=1.6.4",
+    "livekit>=1.0.23,<2",
+    "numpy>=1.20.0",
+    # Note: sanas_remote_sdk is a required runtime dependency but not available on public PyPI.
+    # It must be obtained and installed separately from the Sanas Developer Platform:
+    # https://www.sanas.ai/developer-platform
+    # The plugin handles missing sanas_remote_sdk gracefully with a clear RuntimeError.
+]
+
+[project.urls]
+Documentation = "https://docs.livekit.io"
+Website = "https://livekit.io/"
+Source = "https://github.com/livekit/agents"
+
+[tool.hatch.version]
+path = "livekit/plugins/sanas/version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["livekit"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/livekit"]

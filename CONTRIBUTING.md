@@ -93,6 +93,7 @@ uv pip install pip && uv run mypy --install-types --non-interactive \
     -p livekit.plugins.sarvam \
     -p livekit.plugins.inworld \
     -p livekit.plugins.simli \
+    -p livekit.plugins.sanas \
     -p livekit.plugins.anam
 ```
 
